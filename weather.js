@@ -7,11 +7,19 @@ class Weather {
 
   // Fetch weather from API:
   async getWeather() {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.state}&units=imperial&appid=${this.apiKey}`);
+    const response = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.state}&units=imperial&appid=${this.apiKey}`
+    );
 
-    const responseData = await response.json();
+    if (!response.ok) {
+      throw new Error(
+        `Something Wrong! Status: ${response.status} & ${response.statusText}`
+      );
+    } else {
+      const responseData = await response.json();
 
-    return responseData.main;
+      return responseData;
+    }
   }
 
   // Change weather location
