@@ -13,11 +13,10 @@ class UI {
   paint(weather) {
     this.location.textContent = weather.name;
     this.desc.textContent = weather.weather[0].description;
-    this.string.textContent = weather.main.temp + ' (f)';
+    this.string.textContent = weather.main.temp + ' (F)';
     this.humidity.textContent = `Relative Humidity: ${weather.main.humidity}`;
-    this.tempMin.textContent = `Minimum Temp: ${weather.main.temp_min} (f)`;
-    this.tempMax.textContent = `Maximum Temp: ${weather.main.temp_max} (f)`;
+    this.tempMin.textContent = `Minimum Temp: ${weather.main.temp_min} (F)`;
+    this.tempMax.textContent = `Maximum Temp: ${weather.main.temp_max} (F)`;
     this.wind.textContent = `Wind: ${weather.wind.speed}`;
-  
   }
 }
